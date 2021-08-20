@@ -13,12 +13,12 @@ class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head == None or head.next == None:
             return head
-        prev, curr = None, head
+        previous, curr = None, head
         print(curr)
         while curr:
             # save the node to next node     
-            next_node = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next_node
-        return prev
+            nextnode = curr.next
+            curr.next = previous
+            previous = curr
+            curr = nextnode
+        return previous
