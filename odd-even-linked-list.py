@@ -22,7 +22,7 @@ class Solution(object):
         """
         if head == None or head.next == None:
             return head
-        iterator = 1
+        iterator = 0
         
         odd_chain_iterator = ListNode(head.val)
         odd_chain = odd_chain_iterator
@@ -34,7 +34,7 @@ class Solution(object):
         while current: 
             iterator+=1
             remaining_chain = current.next
-            if iterator % 2 == 0:
+            if iterator % 2 != 0:
                 current.next = None
                 odd_chain_iterator.next = current
                 current = remaining_chain
