@@ -40,8 +40,12 @@ class MyLinkedList:
             return -1
         curr = self.head
         for value in range(index):
-            curr = curr.next
-        return curr.val
+            if curr.next is None:
+                return -1
+            else:
+                curr = curr.next
+        return curr.val if curr !=None else -1
+
 
     
     def addAtHead(self, val: int) -> None:
