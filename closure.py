@@ -11,5 +11,6 @@ def make_averager():
 avg = make_averager(10)
 # print(avg(10))
 # print(avg(11))
+
 print(type(avg))
 print(avg.__closure__[1].cell_contents)
