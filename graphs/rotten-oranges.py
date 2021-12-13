@@ -27,6 +27,7 @@ class Solution:
                 if grid[row][cell] == 1:
                     fresh_oranges +=1
                 if grid[row][cell] == 2:
+                    visited.add((row,cell))
                     queue.append((row,cell))
         if fresh_oranges == 0:
             return fresh_oranges
@@ -43,26 +44,18 @@ class Solution:
                     continue
                 if grid[new_row][new_col] == 2:
                     continue
-                # fresh_oranges -= 1
                 yield (new_row, new_col)
         
         while queue: 
             minutes +=1
-            print(minutes)
-            print('Length', len(queue))
             number_of_nodes = len(queue)
             for _ in range(len(queue)):
                 row, col = queue.popleft()
-                visited.add((row,col))
                 for neighbour_row, neightbor_col in get_neighbours(row,col):
                     if (neighbour_row, neightbor_col) in visited:
-                        print(visited)
                         continue
                     queue.append((neighbour_row, neightbor_col))
                     fresh_oranges -= 1
-                    # visited.add((row,col))
-        print(fresh_oranges)
-        if fresh_oranges == 0:
-            return minutes -1
-        else:
-            return -1
+                    visited.add((neighbour_row,neightbor_col))
+
+        return minutes -1 if fresh_oranges == 0 else -1
