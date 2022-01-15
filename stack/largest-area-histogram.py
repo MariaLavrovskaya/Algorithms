@@ -27,4 +27,7 @@ class Solution:
         # if heights[stack[-1]] > greatest_value:
         #     return heights[stack[-1]]
         return greatest_value
+
+
+
                 
